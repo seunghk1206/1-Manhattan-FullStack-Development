@@ -1,0 +1,8 @@
+X = input('give me a number: ')
+print('The number you put: ' + X)
+Y = input('give me second number: ')
+print('The number you put: ' + Y)
+z = input('give me third number: ')
+print('The number you put: ' + z)
+w = input('give me fourth number: ')
+print('The number you put: ' + w)
