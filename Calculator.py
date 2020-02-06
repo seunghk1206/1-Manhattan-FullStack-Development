@@ -5,12 +5,20 @@ ui.title("Calculator") # our ui's title = calculator
 ui.resizable(False, False) # parameter = 2
 ui.geometry("280x300")
 ui.configure(background = 'green')
-
-#Search - bar 
 display = Entry(ui, width=28, justify='right')
 display.grid(row = 0, column = 0 , columnspan = 4, pady=10, padx=4)
+
+def myFunction():
+    value = Entry.get(display) #get display's entry
+    myFun = float(value) * 0.967 # tax calc
+    display.delete(0, 1)
+    display.insert(0, myFun)
+
+
+#Search - bar 
+
 #button = btn
-btn_my = Button(ui, text='M', width = 5)
+btn_my = Button(ui, text='M', width = 5, command = myFunction)
 btn_c = Button(ui, text='C', width = 5)
 btn_CE = Button(ui, text='CE', width = 5)
 btn_e = Button(ui, text='=', width = 5)
