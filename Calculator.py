@@ -54,8 +54,8 @@ def div():
     display.insert(END, '/')
 def negative():
     display.insert(0, '-')
-def power():
-    display.insert(END, '**')
+def dot():
+    display.insert(END, '.')
 
 
 #Search - bar 
@@ -80,7 +80,7 @@ btn_minus = Button(ui, text='-', width = 5, command = minus)
 btn_mult = Button(ui, text='*', width = 5, command = mult)
 btn_div = Button(ui, text='/', width = 5, command = div)
 btn_negative = Button(ui, text = '+/-', width = 5, command = negative)
-btn_power = Button(ui, text='^', width = 5, command = power)
+btn_dot = Button(ui, text='.', width = 5, command = dot)
 
 #button grid
 btn_my.grid(row = 1, column=0, pady = 3)#computer always think that 0 = one 1 = scond
@@ -102,5 +102,5 @@ btn_minus.grid(row = 3, column = 3)
 btn_mult.grid(row = 4, column = 3)
 btn_div.grid(row = 5, column = 3)
 btn_negative.grid(row = 5, column = 1)
-btn_power.grid(row = 5,column = 2)
+btn_dot.grid(row = 5,column = 2)
 ui.mainloop() # continuously loop
