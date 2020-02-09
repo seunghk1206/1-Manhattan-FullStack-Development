@@ -14,7 +14,7 @@ def myFunction():
     display.delete(0, END)
     display.insert(0, myFun)
 def cancel():
-    display.delete(END[:-1], END)
+    display.delete(0, 1)
 def cancel_all():
     display.delete(0, END)
 def equal():
