@@ -10,7 +10,7 @@ display.grid(row = 0, column = 0 , columnspan = 4, pady=10, padx=4)
 
 def myFunction():
     value = Entry.get(display) #get display's entry
-    myFun = float(value) * 0.967 # tax calc
+    myFun = eval(value) * 29 / 30 # tax calc
     display.delete(0, END)
     display.insert(0, myFun)
 def cancel():
@@ -50,6 +50,10 @@ def mult():
     display.insert(END, '*')
 def div():
     display.insert(END, '/')
+def negative():
+        display.insert(0, '-')
+
+
 #Search - bar 
 
 #button = btn
@@ -71,6 +75,7 @@ btn_plus = Button(ui, text='+', width = 5, command = plus)
 btn_minus = Button(ui, text='-', width = 5, command = minus)
 btn_mult = Button(ui, text='*', width = 5, command = mult)
 btn_div = Button(ui, text='/', width = 5, command = div)
+btn_negative = Button(ui, text = '+/-', width = 5, command = negative)
 
 #button grid
 btn_my.grid(row = 1, column=0, pady = 3)#computer always think that 0 = one 1 = scond
@@ -91,4 +96,5 @@ btn_plus.grid(row = 2, column = 3)
 btn_minus.grid(row = 3, column = 3)
 btn_mult.grid(row = 4, column = 3)
 btn_div.grid(row = 5, column = 3)
+btn_negative.grid(row = 5, column = 1)
 ui.mainloop() # continuously loop
