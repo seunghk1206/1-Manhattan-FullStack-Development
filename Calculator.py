@@ -23,7 +23,7 @@ def equal():
     display.delete(0, END)
     display.insert(0, func)
 def one():
-    display.insert(0, 1)
+    display.insert(END, 1)
 #Search - bar 
 
 #button = btn
