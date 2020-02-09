@@ -14,7 +14,7 @@ def myFunction():
     display.delete(0, END)
     display.insert(0, myFun)
 def cancel():
-    display.delete(0, 1)
+    display.delete(END[:-1], END)
 def cancel_all():
     display.delete(0, END)
 def equal():
@@ -22,6 +22,8 @@ def equal():
     func = eval(value)
     display.delete(0, END)
     display.insert(0, func)
+def zero():
+    display.insert(END, 0)
 def one():
     display.insert(END, 1)
 def Two():
@@ -55,6 +57,7 @@ btn_my = Button(ui, text='M', width = 5, command = myFunction)
 btn_c = Button(ui, text='C', width = 5, command = cancel)
 btn_CE = Button(ui, text='CE', width = 5, command = cancel_all)
 btn_e = Button(ui, text='=', width = 5, command = equal)
+btn_zero = Button(ui, text='0', width = 5, command = zero)
 btn_one = Button(ui, text='1', width = 5, command = one)
 btn_Two = Button(ui, text='2', width = 5, command = Two)
 btn_Three = Button(ui, text='3', width = 5, command = Three)
@@ -74,6 +77,7 @@ btn_my.grid(row = 1, column=0, pady = 3)#computer always think that 0 = one 1 = 
 btn_c.grid(row = 1, column= 1)
 btn_CE.grid(row = 1, column= 2)
 btn_e.grid(row = 1, column = 3)
+btn_zero.grid(row = 5, column = 0)
 btn_one.grid(row = 2, column = 0)
 btn_Two.grid(row = 2, column = 1)
 btn_Three.grid(row = 2, column = 2)
