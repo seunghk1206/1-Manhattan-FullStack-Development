@@ -2,7 +2,7 @@
 from tkinter import *
 import random
 from random import sample
-Val = eval(Entry.get(display))
+
 ui = Tk() # class  = book, we use ui variable to clarify 
 ui.title("lotto generator") # our ui's title = calculator
 ui.resizable(False, False) # parameter = 2
@@ -10,23 +10,23 @@ ui.geometry("280x300")
 ui.configure(background = 'green')
 display = Entry(ui, width=28, justify='right')
 display.grid(row = 0, column = 0 , columnspan = 4, pady=10, padx=4)
-def eg():
-    while :
-        for each in lotte:
-            if each == 40:
-                print("you win!")
-            elif each == 46:
-                print("you are second place!")
-            elif each ==682:
-                print("you are the third place")
-            else:
-                print("fail")
-            break
 
 def lotto():
+    Val = eval(Entry.get(display))
     lotte = random.sample(range(1,1001), Val)
-    display.delete(0,END)
-    display.insert()
+    
+    if each == 40:
+        display.delete(0,END)
+        display.insert(END, "You are the first!")
+    elif each == 46:
+        display.delete(0,END)
+        display.insert(END, "You are second!")
+    elif each == 682:
+        display.delete(0,END)
+        display.insert(END, "You are third")
+    else:
+        display.delete(0,END)
+        display.insert(END, "You fail! Try again!")
 
 def buttonPress(value):#parameter = 메개변수
     """value이라는 변수 (1, 2, 3, + , / ...)을 받고 display.inser("end", value)"""
