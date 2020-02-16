@@ -11,27 +11,29 @@ ui.configure(background = 'green')
 display = Entry(ui, width=28, justify='right')
 display.grid(row = 0, column = 0 , columnspan = 4, pady=10, padx=4)
 
+def cancel_all():
+    display.delete(0, END)
 def lotto():
     Val = eval(Entry.get(display))
     lotte = random.sample(range(1,1001), Val)
-    
-    if each == 40:
-        display.delete(0,END)
-        display.insert(END, "You are the first!")
-    elif each == 46:
-        display.delete(0,END)
-        display.insert(END, "You are second!")
-    elif each == 682:
-        display.delete(0,END)
-        display.insert(END, "You are third")
-    else:
-        display.delete(0,END)
-        display.insert(END, "You fail! Try again!")
-
+    for each in range(1,1001):
+        if lotte == 40:
+            display.delete(0,END)
+            display.insert(END, "You are the first!")
+        elif lotte == 46:
+            display.delete(0,END)
+            display.insert(END, "You are second!")
+        elif lotte == 682:
+            display.delete(0,END)
+            display.insert(END, "You are third")
+        else:
+            display.delete(0,END)
+            display.insert(END, "You fail! Try again!")
+    print(lotte)
 def buttonPress(value):#parameter = 메개변수
     """value이라는 변수 (1, 2, 3, + , / ...)을 받고 display.inser("end", value)"""
     display.insert(END, value)
-
+btn_CE = Button(ui, text='CE', width = 5, command = cancel_all)
 btn_e = Button(ui, text='=', width = 5, command = lotto)
 #Number
 btn_zero = Button(ui, text='0', width = 5, command = lambda: buttonPress('0')) #얘내들을 바꿔줘야해
@@ -45,11 +47,11 @@ btn_seven = Button(ui, text='7', width = 5, command =  lambda: buttonPress('7'))
 btn_eight = Button(ui, text='8', width = 5, command =  lambda: buttonPress('8'))
 btn_nine = Button(ui, text='9', width = 5, command =  lambda: buttonPress('9'))
 #+, -, /, *
-b
+
 
 #button grid
 #computer always think that 0 = one 1 = scond
-
+btn_CE.grid(row = 1, column= 2)
 btn_e.grid(row = 1, column = 3)
 btn_zero.grid(row = 5, column = 0)
 btn_one.grid(row = 2, column = 0)
