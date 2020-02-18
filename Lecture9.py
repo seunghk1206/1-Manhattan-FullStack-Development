@@ -17,22 +17,34 @@ while not done:
     pressed = pygame.key.get_pressed()
     if pressed[pygame.K_UP]:
         y -= 1
-        if x < 21 or y < 21:
+        if 50 < x < 66:
+            if pressed[pygame.K_UP]:
+                y -= 1
+        elif x < 21 or y < 21:
             x = 350
             y = 250
     if pressed[pygame.K_DOWN]: 
         y += 1
-        if x < 21 or y < 21:
+        if 50 < x < 66:
+            if pressed[pygame.K_UP]:
+                y -= 1
+        elif x < 21 or y < 21:
             x = 350
             y = 250
     if pressed[pygame.K_LEFT]: 
         x -= 1
-        if x < 21 or y < 21:
+        if 50 < x < 66:
+            if pressed[pygame.K_UP]:
+                y -= 1
+        elif x < 21 or y < 21:
             x = 350
             y = 250
     if pressed[pygame.K_RIGHT]: 
         x += 1
-        if x < 21 or y < 21:
+        if 50 < x < 66:
+            if pressed[pygame.K_UP]:
+                y -= 1
+        elif x < 21 or y < 21:
             x = 350
             y = 250
     screen.fill((0, 0, 0))
@@ -41,5 +53,6 @@ while not done:
     pygame.draw.rect(screen, color, pygame.Rect(x, y, 6, 6))
     pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(20, 20, 10000, 1))
     pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(20, 20, 1, 10000))
+    pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(50, 20, 16, 2))
     pygame.display.flip()
     clock.tick(60)
