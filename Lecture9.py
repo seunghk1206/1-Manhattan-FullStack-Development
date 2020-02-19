@@ -20,7 +20,7 @@ while not done:
         if 50 < x < 66:
             if pressed[pygame.K_UP]:
                 y -= 1
-        elif x < 21 or y < 21:
+        elif x == 21 or y == 21:
             x = 350
             y = 250
     if pressed[pygame.K_DOWN]: 
@@ -28,7 +28,7 @@ while not done:
         if 50 < x < 66:
             if pressed[pygame.K_UP]:
                 y -= 1
-        elif x < 21 or y < 21:
+        elif x == 21 or y == 21:
             x = 350
             y = 250
     if pressed[pygame.K_LEFT]: 
@@ -36,7 +36,7 @@ while not done:
         if 50 < x < 66:
             if pressed[pygame.K_UP]:
                 y -= 1
-        elif x < 21 or y < 21:
+        elif x == 21 or y == 21:
             x = 350
             y = 250
     if pressed[pygame.K_RIGHT]: 
@@ -44,7 +44,7 @@ while not done:
         if 50 < x < 66:
             if pressed[pygame.K_UP]:
                 y -= 1
-        elif x < 21 or y < 21:
+        elif x == 21 or y == 21:
             x = 350
             y = 250
     screen.fill((0, 0, 0))
