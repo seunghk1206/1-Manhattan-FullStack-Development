@@ -16,7 +16,7 @@ while not done:
             done = True
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             is_blue = not is_blue
-    
+
     pressed = pygame.key.get_pressed()
     ##작은 칸을 넘어가야함. 50 < x < 66 
     if pressed[pygame.K_UP] and 50 < x < 66:
