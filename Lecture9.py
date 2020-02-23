@@ -19,11 +19,13 @@ while not done:
 
     pressed = pygame.key.get_pressed()
     ##작은 칸을 넘어가야함. 50 < x < 66 
-    if pressed[pygame.K_UP] and 50 < x < 66:
+    if pressed[pygame.K_UP] and 0 < x and 0 < y < 21:
+        y -= velocity
+    elif pressed[pygame.K_UP] and 50 < x < 66:
         y -= velocity
     elif pressed[pygame.K_UP] and y > xyLimit: # 21좌표보다 아래 있을때 
         y -= velocity
-        if 50 < x < 66:
+        if 50 < x < 66 :
             if pressed[pygame.K_UP]:
                 y -= 0
         elif x == 21 or y == 21:
@@ -31,21 +33,33 @@ while not done:
             y = 250
     if pressed[pygame.K_DOWN] and y < 300 - 6 - 2: 
         y += velocity
-        if x == 21 or y == 21:
+        if 50 < x < 66 :
+            if pressed[pygame.K_DOWN]:
+                y -= 0
+        elif x == 21 or y == 21:
             x = 350
             y = 250
     if pressed[pygame.K_LEFT] and x > xyLimit: 
         x -= velocity
-        if x == 21 or y == 21:
+        if 50 < x < 66 :
+            if pressed[pygame.K_LEFT]:
+                y -= 0
+        elif x == 21 or y == 21:
             x = 350
             y = 250
     if pressed[pygame.K_RIGHT] and x < 400 - 6 - 2: 
         x += velocity
-        if x == 21 or y == 21:
+        if 50 < x < 66 :
+            if pressed[pygame.K_RIGHT]:
+                y -= 0
+        elif x == 21 or y == 21:
             x = 350
             y = 250
+    if y <= 0:
+        done = True
     screen.fill((0, 0, 0))
-    if is_blue: color = (0, 128, 255)
+    if is_blue: 
+        color = (0, 128, 255)
     else: color = (255, 100, 0)
     pygame.draw.rect(screen, color, pygame.Rect(x, y, 6, 6))
     pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(20, 20, 10000, 1))
