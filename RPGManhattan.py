@@ -11,67 +11,47 @@ char = pygame.image.load('Game/standing.png')
 
 #walkRight[4] = 5번째 사진??? 0번째가 첫번째다!!!
 
-screen = pygame.display.set_mode((1500, 1000))
+screen = pygame.display.set_mode((500, 400))
 pygame.display.set_caption("MANhattan game project")
-
 surface = pygame.image.load('Game/R1.png')
 pygame.display.set_icon(surface)
-run = True
-is_blue = True
 
-x = 50
-y = 400
+#python = object oriented (객체 지향)
+class player(object):
+    def __init__(self, x, y, width, height):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.velocity = 5
+        self.left = False
+        self.right = False
+        self.walkCount = 0 #standing 
+        self.isJump = False
+        self.jumpCount = 5
 
-width = 64
-height = 64 #size of chracter
-
-velocity = 5
-left = False
-right = False
-walkCount = 0 #standing 
-
-isJump = False
-jumpCount = 5
+    def draw(self, screen):
+        if self.walkCount + 1 >= 27:
+            self.walkCount = 0
+        if self.left:
+            screen.blit(walkLeft[self.walkCount//3],(self.x, self.y)) # //3 -> 나머지 값을 제외 한 몫
+            self.walkCount += 1
+        elif right:
+            screen.blit(walkRight[self.walkCount//3],(self.x,self.y))
+            self.walkCount += 1 
+        else:
+            screen.blit(char, (self.x, self.y))
+            self.walkCount = 0
 
 def drawGameWindow(): #캐릭터가 움직일때마다 모션 표현
-    
-    global walkCount # 글로벌 변수 =함수 안에서 불렸지만 밖에서도 쓰임
-
+    global walkCount # 글로벌 변수 =함수 안에서 불렸지만 밖에서도 쓰
     screen.blit(bg,(0,0)) # 내뒤에 있는 사진 지우기용
-
-    if walkCount + 1 >= 27:
-        walkCount = 0
-    if left:
-        screen.blit(walkLeft[walkCount//3],(x,y)) # //3 -> 나머지 값을 제외 한 몫
-        walkCount += 1
-    elif right:
-        screen.blit(walkRight[walkCount//3],(x,y))
-        walkCount += 1 
-    else:
-        screen.blit(char, (x,y))
-        walkCount = 0
     pygame.display.update()
 
-def drawGameWindowEvil(): #캐릭터가 움직일때마다 모션 표현
-    
-    global walkCount # 글로벌 변수 =함수 안에서 불렸지만 밖에서도 쓰임
-
-    screen.blit(bg,(0,0)) # 내뒤에 있는 사진 지우기용
-
-    if walkCount + 1 >= 27:
-        walkCount = 0
-    if left:
-        screen.blit(walkLeft[walkCount//3],(x,y)) # //3 -> 나머지 값을 제외 한 몫
-        walkCount += 1
-    elif right:
-        screen.blit(walkRight[walkCount//3],(x,y))
-        walkCount += 1 
-    else:
-        screen.blit(char, (x,y))
-        walkCount = 0
-    pygame.display.update()
 
 clock = pygame.time.Clock()
+run = True
+
 while run:
     clock.tick(27) # 27 frames
     for event in pygame.event.get():
@@ -106,7 +86,7 @@ while run:
             walkCount = 0
     else:
         if jumpCount >= -5:    
-            y -= (jumpCount * abs(jumpCount)) * 1
+            y -= (jumpCount * abs(jumpCount)) * 0.5
             jumpCount -= 1
         else:
             jumpCount = 5
