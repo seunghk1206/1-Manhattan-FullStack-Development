@@ -11,7 +11,7 @@
 -----------
 ![firstPygame](https://user-images.githubusercontent.com/60473607/74947797-5a68b480-5436-11ea-90a7-f2f5506c1611.png)
 
-- Most people will glance at your `README`, *maybe* star it, and leave
+- This project is my learning project! It keeps me in track of how I learn the topics for my future projects. Furthermore, this branch might give you a lot of idea of how I learned basics of python! Even the initial templates of other branches/projects will be in this branch! I hope this branch gives everyone an idea of ho convinient python is, and what it can create!
 - Ergo, people should understand instantly what your project is about based on your repo
 
 > Tips
