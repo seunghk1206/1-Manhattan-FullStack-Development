@@ -1,31 +1,18 @@
-x = float(input("give me an x value:"))
-y = float(input("give me an y value:"))
+##$$%%^^
+listO = []
+listC = []
+I = 0
+for U in range(10):
+    a = int(input("Number"))
+    listO.append(a % 42)
 
-if x > 0 and y > 0:
-    print("이 점은 제 1 사분면 위에 있다.")
-elif x < 0 and y < 0:
-    print("이 점은 제 4 사분면 위에 있다.")
-elif x < 0 and y > 0:
-    print("이 점은 제 2 사분면 위에 있다.")
-elif x > 0 and y < 0:
-    print("이 점은 제 3 사분면 위에 있다.")
-else:
-    print("그 어느 사분면 위에도 있지 않다.")
+for each in listO:
+    for eachNum in listO:
+        if each == eachNum:
+            listO.remove(each)
+    
+for h in listO:
+    I += 1
 
-## 2
-c = int(input("how many times would you like to do the sum up?"))
+print(I * 2, "개의 숫자는 제각각")
 
-listA = []
-for eachNum in range(c):
-    a, b = map(int, input().split())
-    listA.append(a + b)
-
-for x in listA:
-    print(x)
-
-##XD
-
-p = int(input("how many stars would you like?"))
-
-for each in range(p):
-    print("*" * (each + 1))
