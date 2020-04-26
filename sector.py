@@ -8,12 +8,9 @@ for U in range(10):
 
 for each in listO:
     for eachNum in listO:
-        listO.remove(each)
         if each == eachNum:
-            listO.remove(eachNum)
-        elif each != eachNum and :
-    
-for h in listO:
-    I += 1
+            I += 1
 
-print(I, "개의 숫자는 제각각")
+
+
+print("각 숫자를 42로 나누었을때", 20 - I, "개의 숫자는 나머지가 제각각")
