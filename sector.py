@@ -11,6 +11,17 @@ for each in listO:
         if each == eachNum:
             I += 1
 
-
-
 print("각 숫자를 42로 나누었을때", 20 - I, "개의 숫자는 나머지가 제각각")
+
+##4212
+
+a = list(input().split(' '))
+
+a.remove(max(a))
+
+print(a)
+
+print(max(a))
+
+##
+
