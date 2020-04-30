@@ -1,27 +1,39 @@
 
-v = int(input("how many cards? "))
+
+##
+
+howMany = int(input("how many cards? "))
 limit = int(input("what would you set as a limit? "))
-x = []
-l = []
+absVal = []
+EL = []
+values = []
+negativeValues = []
 sum = 0
-run = 1
-if 3 <= v <= 100:
-    n = list(input().split(', '))
-    if len(n) == v:
-        while run == 1:
-            if len(x) == 3:
-                break
-            elif int(max(n)) <= limit:
-                for i in range(3):
-                    x.append(max(n))
-                    n.remove(max(n))
-                break
-            elif int(max(n)) > limit:
-                n.remove(max(n))
-        for a in range(len(x)):
-            sum += int(x[a])
+if 3 <= howMany <= 100:
+    Cnumbers = list(input().split(', '))
+    if len(Cnumbers) == howMany:
+        for each in Cnumbers:
+            EL.append(int(each) - int(limit))
+        sorted(EL)
+        for eachNum in EL:
+            if eachNum < 0:
+                negativeValues.append(eachNum)
+            print(negativeValues)
+        for each in EL:
+            absVal.append(abs(each))
+            print(absVal)
+        for each in absVal:
+            Index = int(absVal.index(min(absVal)))
+            IndexX = int(negativeValues.index(max(negativeValues)))
+            if Index > IndexX:
+                values.append(min(absVal)+limit)
+            elif Index <= IndexX:
+                values.append(-min(absVal)+limit)
+            absVal.remove(min(absVal))
+        for a in range(len(values)):
+            sum += int(values[a])
         print(sum)
     else:
-        print("only", v, "cards accepted")
+        print("only", howMany, "cards accepted")
 else:
     print("too many cards, error")
