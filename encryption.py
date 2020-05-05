@@ -1,15 +1,22 @@
 howMany = int(input("how many individual units of letters? "))
 independentLetters = []
 Len = []
+Len2 = []
 for each in range(howMany):
-    inputUnit = list(input().split(' '))
+    inputUnit = input().split()
+    print(inputUnit)
     inputLen = len(inputUnit)
     independentLetters.extend(inputUnit)
+    print(independentLetters)
     Len.append(inputLen)
+    print(Len)
+for i in range(howMany):
+    for each in range(Len[i]):
+        Len2.append(Len[i])
 for each in range(len(independentLetters)):
-    Index = independentLetters[each-1]
-    length = Len[each-1] - 1
-    if independentLetters.index(Index) != length:
+    Index = independentLetters[each]
+    length = independentLetters.index(Index)
+    if length != Len2[each-3]:
         if Index == 'ㄱ':
             a = 1
             x = format(a, 'b')
@@ -108,7 +115,7 @@ for each in range(len(independentLetters)):
         elif Index == 'ㅒ':
             a = "R2 + RUDL2"
             print(a, "+")
-    elif independentLetters.index(Index) == length:
+    elif length == Len2[each-3]:
         if Index == 'ㄱ':
             a = 1
             x = format(a, 'b')
