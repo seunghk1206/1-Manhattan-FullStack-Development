@@ -12,11 +12,12 @@ for each in range(howMany):
     print(Len)
 for i in range(howMany):
     for each in range(Len[i]):
-        Len2.append(Len[i])
-for each in range(len(independentLetters)):
+        Len2.append(Len[i]-1)
+        print(Len2)
+for each in range(0, len(independentLetters)):
     Index = independentLetters[each]
     length = independentLetters.index(Index)
-    if length != Len2[each-3]:
+    if length != Len2[each]:
         if Index == 'ㄱ':
             a = 1
             x = format(a, 'b')
@@ -115,7 +116,7 @@ for each in range(len(independentLetters)):
         elif Index == 'ㅒ':
             a = "R2 + RUDL2"
             print(a, "+")
-    elif length == Len2[each-3]:
+    elif length == Len2[each]:
         if Index == 'ㄱ':
             a = 1
             x = format(a, 'b')
