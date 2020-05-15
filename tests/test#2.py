@@ -1,46 +1,42 @@
 def solution(A):
     countList = []
     for each in range(len(A)):
-        count = 0
         m = 0
         n = 0
         if A[each] == 1:
             a = A.count(6) * 2
-            m = count + a
-            b = A.count(1)
-            ln = len(A) - a/2 - b
+            m = a
+            ln = len(A) - A.count(6) - A.count(1)
             n = m + ln
         elif A[each] == 2:
             a = A.count(5) * 2
-            m = count + a
-            b = A.count(2)
-            ln = len(A) - a/2 - b
+            m = a
+            ln = len(A) - A.count(5) - A.count(2)
             n = m + ln
         elif A[each] == 3:
             a = A.count(4) * 2
-            m = count + a
-            b = A.count(3)
-            ln = len(A) - a/2 - b
+            m = a
+            ln = len(A) - A.count(4) - A.count(3)
             n = m + ln
         elif A[each] == 4:
             a = A.count(3) * 2
-            m = count + a
-            b = A.count(4)
-            ln = len(A) - a/2 - b
+            m = a
+            ln = len(A) - A.count(3) - A.count(4)
             n = m + ln
         elif A[each] == 5:
             a = A.count(2) * 2
-            m = count + a
-            b = A.count(5)
-            ln = len(A) - a/2 - b
+            m = a
+            ln = len(A) -A.count(2) - A.count(5)
             n = m + ln
         elif A[each] == 6:
-            a = A.count(6) * 2
-            m = count + a
-            b = A.count(1)
-            ln = len(A) - a/2 - b
+            a = A.count(1) * 2
+            m = a
+            ln = len(A) -A.count(1) - A.count(6)
             n = m + ln
         countList.append(n)
+        n = 0
+        m = 0
+    print(countList)
     return min(countList)
 XL = input()
 print(solution(XL))
