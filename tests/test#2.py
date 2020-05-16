@@ -21,11 +21,11 @@ def solution(A):
             countList.append(a + ln)
         elif A[each] == '5' or A[each] == '[5' or A[each] == '5]':
             a = A.count(2) * 2
-            ln = len(A) -A.count('2') - A.count('5') - A.count('[2') - A.count('2]') - A.count('[5') - A.count('5]')
+            ln = len(A) -A.count('2') - A.count('5') - A.count('[5') - A.count('5]') - A.count('[2') - A.count('2]')
             countList.append(a + ln)
         elif A[each] == '6' or A[each] == '[6' or A[each] == '6]':
             a = A.count('1') * 2
-            ln = len(A) -A.count('1') - A.count('6') - A.count('[1') - A.count('1]') - A.count('[6') - A.count('6]')
+            ln = len(A) -A.count('1') - A.count('6') - A.count('[6') - A.count('6]') - A.count('[1') - A.count('1]')
             countList.append(a + ln)
         else:
             pass
