@@ -1,6 +1,4 @@
 def solution(A):
-    print(A)
-    print(len(A))
     countList = []
     for each in range(len(A)):
         if A[each] == '1' or A[each] == '[1' or A[each] == '1]':
@@ -29,7 +27,6 @@ def solution(A):
             countList.append(a + ln)
         else:
             pass
-    print(countList)
     return min(countList)
 XL = list(input().split(', '))
 print(solution(XL))
