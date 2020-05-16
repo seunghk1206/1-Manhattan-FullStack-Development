@@ -1,73 +1,35 @@
 def solution(A):
+    print(A)
+    print(len(A))
     countList = []
     for each in range(len(A)):
-        m = 0
-        n = 0
-        if A[each] == 1:
-            a = A.count(6) * 2
-            m = a
-            ln = len(A) - A.count(6) - A.count(1)
-            n = m + ln
-        elif A[each] == 2:
-            a = A.count(5) * 2
-            m = a
-            ln = len(A) - A.count(5) - A.count(2)
-            n = m + ln
-        elif A[each] == 3:
-            a = A.count(4) * 2
-            m = a
-            ln = len(A) - A.count(4) - A.count(3)
-            n = m + ln
-        elif A[each] == 4:
-            a = A.count(3) * 2
-            m = a
-            ln = len(A) - A.count(3) - A.count(4)
-            n = m + ln
-        elif A[each] == 5:
+        if A[each] == '1' or A[each] == '[1' or A[each] == '1]':
+            a = A.count('6') * 2
+            ln = len(A) - A.count('6') - A.count('1') - A.count('[1') - A.count('1]') - A.count('[6') - A.count('6]')
+            countList.append(a + ln)
+        elif A[each] == '2' or A[each] == '[2' or A[each] == '2]':
+            a = A.count('5') * 2
+            ln = len(A) - A.count('5') - A.count('2') - A.count('[2') - A.count('2]') - A.count('[5') - A.count('5]')
+            countList.append(a + ln)
+        elif A[each] == '3' or A[each] == '[3' or A[each] == '3]':
+            a = A.count('4') * 2
+            ln = len(A) - A.count('4') - A.count('3') - A.count('[3') - A.count('3]') - A.count('[4') - A.count('4]')
+            countList.append(a + ln)
+        elif A[each] == '4' or A[each] == '[4' or A[each] == '4]':
+            a = A.count('3') * 2
+            ln = len(A) - A.count('3') - A.count('4') - A.count('[4') - A.count('4]') - A.count('[3') - A.count('3]')
+            countList.append(a + ln)
+        elif A[each] == '5' or A[each] == '[5' or A[each] == '5]':
             a = A.count(2) * 2
-            m = a
-            ln = len(A) -A.count(2) - A.count(5)
-            n = m + ln
-        elif A[each] == 6:
-            a = A.count(1) * 2
-            m = a
-            ln = len(A) -A.count(1) - A.count(6)
-            n = m + ln
-        countList.append(n)
-        n = 0
-        m = 0
+            ln = len(A) -A.count('2') - A.count('5') - A.count('[2') - A.count('2]') - A.count('[5') - A.count('5]')
+            countList.append(a + ln)
+        elif A[each] == '6' or A[each] == '[6' or A[each] == '6]':
+            a = A.count('1') * 2
+            ln = len(A) -A.count('1') - A.count('6') - A.count('[1') - A.count('1]') - A.count('[6') - A.count('6]')
+            countList.append(a + ln)
+        else:
+            pass
     print(countList)
     return min(countList)
-XL = input()
+XL = list(input().split(', '))
 print(solution(XL))
-
-##
-
-
-
-def Rsolution(A):
-    countList = []
-    count = 0
-    for each in range(len(A)):
-        for i in range(len(A)):
-            if A[each] == 1 and A[i] == 6:
-                count += 2
-            elif A[each] == 2 and A[i] == 5:
-                count += 2
-            elif A[each] == 3 and A[i] == 4:
-                count += 2
-            elif A[each] == 4 and A[i] == 3:
-                count += 2
-            elif A[each] == 5 and A[i] == 2:
-                count += 2
-            elif A[each] == 6 and A[i] == 1:
-                count += 2
-            elif A[each] == A[i]:
-                count += 0
-            else:
-                count += 1
-        countList.append(count)
-        count = 0
-    return min(countList)
-m = input()
-print(Rsolution(m))
