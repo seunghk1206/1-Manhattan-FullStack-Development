@@ -25,61 +25,33 @@ for each in range(0, len(independentLetters)):
     length = independentLetters.index(Index)
     if length == Len2[each]:
         if Index == 'ㄱ':
-            a = 1
-            x = format(a, 'b')
-            print(x)
+            print(format(1, 'b'))
         elif Index == 'ㄴ':
-            a = 2
-            x = format(a, 'b')
-            print(x)
+            print(format(2, 'b'))
         elif Index == 'ㄷ':
-            a = 3
-            x = format(a, 'b')
-            print(x)
+            print(format(3, 'b'))
         elif Index == 'ㄹ':
-            a = 4
-            x = format(a, 'b')
-            print(x)
+            print(format(4, 'b'))
         elif Index == 'ㅁ':
-            a = 5
-            x = format(a, 'b')
-            print(x)
+            print(format(5, 'b'))
         elif Index == 'ㅂ':
-            a = 6
-            x = format(a, 'b')
-            print(x)
+            print(format(6, 'b'))
         elif Index == 'ㅅ':
-            a = 7
-            x = format(a, 'b')
-            print(x)
+            print(format(7, 'b'))
         elif Index == 'ㅇ':
-            a = 8
-            x = format(a, 'b')
-            print(x)
+            print(format(8, 'b'))
         elif Index == 'ㅈ':
-            a = 9
-            x = format(a, 'b')
-            print(x)
+            print(format(9, 'b'))
         elif Index == 'ㅊ':
-            a = 10
-            x = format(a, 'b')
-            print(x)
+            print(format(10, 'b'))
         elif Index == 'ㅋ':
-            a = 11
-            x = format(a, 'b')
-            print(x)
+            print(format(11, 'b'))
         elif Index == 'ㅌ':
-            a = 12
-            x = format(a, 'b')
-            print(x)
+            print(format(12, 'b'))
         elif Index == 'ㅍ':
-            a = 13
-            x = format(a, 'b')
-            print(x)
+            print(format(13, 'b'))
         elif Index == 'ㅎ':
-            a = 14
-            x = format(a, 'b')
-            print(x)
+            print(format(14, 'b'))
         elif Index == 'ㅏ':
             a = "R1"
             print(a)
