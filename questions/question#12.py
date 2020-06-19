@@ -14,5 +14,4 @@ for each in coorL:
             pass
         else:
             distL.append(abs(pyth))
-
 print(min(distL))
