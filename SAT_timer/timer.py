@@ -5,7 +5,7 @@ ui = Tk() # class  = book, we use ui variable to clarify
 ui.title("SAT_timer") # our ui's title = calculator
 ui.resizable(False, False) # parameter = 2
 ui.geometry("280x300")
-ui.configure(background = 'green')
+ui.configure(background = 'blue')
 display = Entry(ui, width=28, justify='right')
 display.grid(row = 1, column = 0, columnspan = 4, pady=10, padx=4)
 label = Label(ui, text = 'time left:')
@@ -27,6 +27,7 @@ def timer(NoS, description):
         time.sleep(1)
     display.delete(0, END)
     display.insert(0, description)
+    ui.update()
     print(description)
     time.sleep(5)
 def SATtimer():
