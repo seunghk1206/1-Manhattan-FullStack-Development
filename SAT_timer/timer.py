@@ -1,5 +1,7 @@
 from tkinter import * #Tkinter lib take all * = all
 import time
+from winsound import *
+play = lambda: PlaySound("./alarm.mp3", 15)
 #package (lib)불러올땐 맨위에 작성
 ui = Tk() # class  = book, we use ui variable to clarify 
 ui.title("SAT_timer") # our ui's title = calculator
@@ -28,9 +30,11 @@ def timer(NoS, description):
     display.delete(0, END)
     display.insert(0, description)
     ui.update()
+    play()
     print(description)
     time.sleep(5)
 def SATtimer():
+    timer(5, 'test')
     timer(3900, 'TIMER OVER, RESTING TIME START')
     timer(595, 'TIMER OVER, Writing test start')
     timer(2095, 'TIMER OVER, Math without calc. start')
