@@ -1,7 +1,11 @@
 from tkinter import * #Tkinter lib take all * = all
 import time
 import pygame
+import os
 #package (lib)불러올땐 맨위에 작성
+direc = './SoT_timers/'
+NoTs = []
+LoTs = []
 count = 0
 pygame.mixer.init()
 alarm = pygame.mixer.Sound('./SAT_timer/alarm(wav).wav')
@@ -36,18 +40,20 @@ def timer(NoS, description):
     time.sleep(5)
 def SATtimer():
     tempL = []
-    file = open('timerList', 'r')
-    timers = file.read().splitlines()
-    print(timers)
-    timers.remove(timers[0])
-    for each in timers:
-        a = list(each.split(':'))
-        print(a)
-        tempL.append(int(a[0])*3600)
-        tempL.append(int(a[1])*60)
-        tempL.append(int(a[2]))
-        timer(sum(tempL), 'TIME OVER')
-        tempL = []
+    for each in LoTs:
+        file = open(direc + each, 'r')
+        timers = file.read().splitlines()
+        print(timers)
+        Timers = Label(ui, text = 'current timer:' + each)
+        Timers.grid(row = 4, column = 0)
+        for i in timers:
+            a = list(i.split(':'))
+            print(a)
+            tempL.append(int(a[0])*3600)
+            tempL.append(int(a[1])*60)
+            tempL.append(int(a[2]))
+            timer(sum(tempL), 'TIME OVER')
+            tempL = []
 
 def setTimer():
     global screen1
@@ -56,45 +62,44 @@ def setTimer():
     screen1.geometry("500x300")
     AoT = StringVar()
     AoT2 = StringVar()
-    AoT3 = StringVar()
-    AoT4 = StringVar()
-    AoT5 = StringVar()
     global LoT
     LoT = Entry(screen1, textvariable = AoT)
     LoT.grid(row = 1, column = 0, pady = 3)
-    global LoT2
-    LoT2 = Entry(screen1, textvariable = AoT2)
-    LoT2.grid(row = 2, column = 0, pady = 3)
-    global LoT3
-    LoT3 = Entry(screen1, textvariable = AoT3)
-    LoT3.grid(row = 3, column = 0, pady = 3)
-    global LoT4
-    LoT4 = Entry(screen1, textvariable = AoT4)
-    LoT4.grid(row = 4, column = 0, pady = 3)
-    global LoT5
-    LoT5 = Entry(screen1, textvariable = AoT5)
-    LoT5.grid(row = 5, column = 0, pady = 3)
+    global NoT
+    NoT = Entry(screen1, textvariable = AoT2)
+    NoT.grid(row = 1, column = 1, pady = 3)
     btn_add = Button(screen1, text = "add", width = 10, height = 1, command = add_timer)
     btn_add.grid(row = 6, column = 0, pady = 3)
-    instructions = Label(screen1, text = 'add the wanted amount of time by order from up to down')
-    instructions.grid(row = 7, column = 0)
+    btn_delATime = Button(screen1, text = 'delete', width = 10, command = delT)
+    btn_delATime.grid(row = 7, column = 0, pady = 3)
+    instructions = Label(screen1, text = 'add the wanted amount of time on the left and the name right')
+    instructions.grid(row = 8, column = 0)
     instructions2 = Label(screen1, text = 'Format: H:M:S')
-    instructions2.grid(row = 8, column = 0)
+    instructions2.grid(row = 9, column = 0)
     ui.mainloop()
 
 def add_timer():
     Ts = LoT.get()
-    Ts2 = LoT2.get()
-    Ts3 = LoT3.get()
-    Ts4 = LoT4.get()
-    Ts5 = LoT5.get()
-    file = open('timerList', "w") #[username_info].txt - > youngho.txt, file의 권한 = w -> Write
-    file.write(Ts+'\n') #new line
-    file.write(Ts2+'\n')
-    file.write(Ts3+'\n')
-    file.write(Ts4+'\n')
-    file.write(Ts5+'\n')
+    Ts2 = NoT.get()
+    file = open(direc + Ts2, "w") #[username_info].txt - > youngho.txt, file의 권한 = w -> Write
+    file.write(Ts) #new line
     file.close()
+    global NoTs
+    NoTs.append(Ts2)
+    global LoTs
+    LoTs.append(Ts)
+    print(NoTs, LoTs)
+    N = Label(screen1, text = NoTs)
+    T = Label(screen1, text = LoTs)
+    N.grid(row = 10, column = 0)
+    T.grid(row = 11, column = 0)
+
+def delT():
+    os.remove(direc + str(NoTs[-1]))
+    NoTs.remove(NoTs[-1])
+    LoTs.remove(LoTs[-1])
+    deleted = Label(screen1, text = 'file successfully deleted!')
+    deleted.grid(row = 12, column = 0)
 btn_strtTimer = Button(ui, text = 'start timer', width = 10, command = SATtimer)
 btn_strtTimer.grid(row = 2, column=0, pady = 3)
 btn_addATime = Button(ui, text = 'add a timer', width = 10, command = setTimer)
