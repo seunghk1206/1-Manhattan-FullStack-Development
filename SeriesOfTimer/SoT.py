@@ -38,30 +38,65 @@ def SATtimer():
     tempL = []
     file = open('timerList', 'r')
     timers = file.read().splitlines()
+    print(timers)
+    timers.remove(timers[0])
     for each in timers:
         a = list(each.split(':'))
-        tempL.append(a[0]*3600)
-        tempL.append(a[1]*60)
-        tempL.append(a[2])
+        print(a)
+        tempL.append(int(a[0])*3600)
+        tempL.append(int(a[1])*60)
+        tempL.append(int(a[2]))
         timer(sum(tempL), 'TIME OVER')
+        tempL = []
 
 def setTimer():
+    global screen1
     screen1 = Toplevel(ui)
     screen1.title("set_timer")
-    screen1.geometry("300x250")
+    screen1.geometry("500x300")
     AoT = StringVar()
+    AoT2 = StringVar()
+    AoT3 = StringVar()
+    AoT4 = StringVar()
+    AoT5 = StringVar()
     global LoT
     LoT = Entry(screen1, textvariable = AoT)
-    Button(screen1, text = "add", width = 10, height = 1, command = add_timer).pack()
+    LoT.grid(row = 1, column = 0, pady = 3)
+    global LoT2
+    LoT2 = Entry(screen1, textvariable = AoT2)
+    LoT2.grid(row = 2, column = 0, pady = 3)
+    global LoT3
+    LoT3 = Entry(screen1, textvariable = AoT3)
+    LoT3.grid(row = 3, column = 0, pady = 3)
+    global LoT4
+    LoT4 = Entry(screen1, textvariable = AoT4)
+    LoT4.grid(row = 4, column = 0, pady = 3)
+    global LoT5
+    LoT5 = Entry(screen1, textvariable = AoT5)
+    LoT5.grid(row = 5, column = 0, pady = 3)
+    btn_add = Button(screen1, text = "add", width = 10, height = 1, command = add_timer)
+    btn_add.grid(row = 6, column = 0, pady = 3)
+    instructions = Label(screen1, text = 'add the wanted amount of time by order from up to down')
+    instructions.grid(row = 7, column = 0)
+    instructions2 = Label(screen1, text = 'Format: H:M:S')
+    instructions2.grid(row = 8, column = 0)
     ui.mainloop()
 
 def add_timer():
     Ts = LoT.get()
-    file = open('username_info', "w") #[username_info].txt - > youngho.txt, file의 권한 = w -> Write
-    file.write("\n")
-    file.write(Ts) #new line
+    Ts2 = LoT2.get()
+    Ts3 = LoT3.get()
+    Ts4 = LoT4.get()
+    Ts5 = LoT5.get()
+    file = open('timerList', "w") #[username_info].txt - > youngho.txt, file의 권한 = w -> Write
+    file.write(Ts+'\n') #new line
+    file.write(Ts2+'\n')
+    file.write(Ts3+'\n')
+    file.write(Ts4+'\n')
+    file.write(Ts5+'\n')
     file.close()
-    Ts.delete(0, END)
-btn_strtTimer = Button(ui, text='start timer', width = 10, command = SATtimer)
+btn_strtTimer = Button(ui, text = 'start timer', width = 10, command = SATtimer)
 btn_strtTimer.grid(row = 2, column=0, pady = 3)
+btn_addATime = Button(ui, text = 'add a timer', width = 10, command = setTimer)
+btn_addATime.grid(row = 3, column = 0, pady = 3)
 ui.mainloop()
