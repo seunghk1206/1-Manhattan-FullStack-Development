@@ -11,11 +11,11 @@ pygame.mixer.init()
 alarm = pygame.mixer.Sound('./SAT_timer/alarm(wav).wav')
 ui = Tk() # class  = book, we use ui variable to clarify 
 ui.title("SAT_timer") # our ui's title = calculator
-ui.resizable(False, False) # parameter = 2
+ui.resizable(True, True) # parameter = 2
 ui.geometry("500x300")
 ui.configure(background = 'blue')
-display = Entry(ui, width=28, justify='right')
-display.grid(row = 1, column = 0, columnspan = 4, pady=10, padx=4)
+#display = Entry(ui, width=28, justify='right')
+#display.grid(row = 1, column = 0, columnspan = 4, pady=10, padx=4)
 label = Label(ui, text = 'time left:')
 label.grid(row = 0, column = 0)
 def timer(NoS, description):
@@ -23,24 +23,34 @@ def timer(NoS, description):
         a = remaining-(3600*(remaining//3600))
         b = a//60
         c = remaining-(remaining//3600*3600)-(b*60)
-        display.delete(0, END)
-        display.insert(END, remaining//3600)
-        display.insert(END, ":")
-        display.insert(END, b)
-        display.insert(END, ":")
-        display.insert(END, c)
+        #display.delete(0, END)
+        #display.insert(END, remaining//3600)
+        #display.insert(END, ":")
+        #display.insert(END, b)
+        #display.insert(END, ":")
+        #display.insert(END, c)
+        timerLabelH = Label(ui, width = 20, height = 10, text = remaining//3600, font = ('comicsans', 20))
+        timerLabelH.grid(row = 1, column = 0)
+        timerLabelM = Label(ui, width = 20, height = 10, text = b, font = ('comicsans', 20))
+        timerLabelM.grid(row = 1, column = 1)
+        timerLabelS = Label(ui, width = 20, height = 10, text = c, font = ('comicsans', 20))
+        timerLabelS.grid(row = 1, column = 2)
         print(remaining//3600, ':', b, ':', c)
         ui.update()
         time.sleep(1)
-    display.delete(0, END)
-    display.insert(0, description)
+    Lodesc = description.split(' ')
+    descLabel = Label(ui, width = 20, height = 10, text = Lodesc[0], font = ('comicsans', 20))
+    descLabel.grid(row = 1, column = 0)
+    descLabel = Label(ui, width = 20, height = 10, text = Lodesc[1], font = ('comicsans', 20))
+    descLabel.grid(row = 1, column = 1)
     ui.update()
     print(description)
     alarm.play()
     time.sleep(5)
+
 def SATtimer():
     tempL = []
-    for each in LoTs:
+    for each in NoTs:
         file = open(direc + each, 'r')
         timers = file.read().splitlines()
         print(timers)
