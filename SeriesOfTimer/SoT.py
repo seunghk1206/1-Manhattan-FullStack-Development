@@ -13,7 +13,7 @@ ui = Tk() # class  = book, we use ui variable to clarify
 ui.title("SAT_timer") # our ui's title = calculator
 ui.resizable(True, True) # parameter = 2
 ui.geometry("500x300")
-ui.configure(background = 'blue')
+ui.configure(background = 'gray')
 #display = Entry(ui, width=28, justify='right')
 #display.grid(row = 1, column = 0, columnspan = 4, pady=10, padx=4)
 label = Label(ui, text = 'time left:')
@@ -39,10 +39,15 @@ def timer(NoS, description):
         ui.update()
         time.sleep(1)
     Lodesc = description.split(' ')
-    descLabel = Label(ui, width = 20, height = 10, text = Lodesc[0], font = ('comicsans', 20))
-    descLabel.grid(row = 1, column = 0)
-    descLabel = Label(ui, width = 20, height = 10, text = Lodesc[1], font = ('comicsans', 20))
-    descLabel.grid(row = 1, column = 1)
+    try:
+        descLabel = Label(ui, width = 20, height = 10, text = Lodesc[0], font = ('comicsans', 20))
+        descLabel.grid(row = 1, column = 0)
+        descLabel = Label(ui, width = 20, height = 10, text = Lodesc[1], font = ('comicsans', 20))
+        descLabel.grid(row = 1, column = 1)
+        descLabel = Label(ui, width = 20, height = 10, text = Lodesc[2], font = ('comicsans', 20))
+        descLabel.grid(row = 1, column = 2)
+    except: 
+        pass
     ui.update()
     print(description)
     alarm.play()
@@ -62,8 +67,9 @@ def SATtimer():
             tempL.append(int(a[0])*3600)
             tempL.append(int(a[1])*60)
             tempL.append(int(a[2]))
-            timer(sum(tempL), 'TIME OVER')
+            timer(sum(tempL), each + ' OVER')
             tempL = []
+        os.remove(direc + each)
 
 def setTimer():
     global screen1
@@ -110,6 +116,10 @@ def delT():
     LoTs.remove(LoTs[-1])
     deleted = Label(screen1, text = 'file successfully deleted!')
     deleted.grid(row = 12, column = 0)
+    N = Label(screen1, text = NoTs)
+    T = Label(screen1, text = LoTs)
+    N.grid(row = 10, column = 0)
+    T.grid(row = 11, column = 0)
 btn_strtTimer = Button(ui, text = 'start timer', width = 10, command = SATtimer)
 btn_strtTimer.grid(row = 2, column=0, pady = 3)
 btn_addATime = Button(ui, text = 'add a timer', width = 10, command = setTimer)
