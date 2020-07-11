@@ -1,6 +1,6 @@
 import time
 import sys
-    
+print(2%2)
 for remaining in range(10, 0, -1):
     sys.stdout.write("\r")
     sys.stdout.write("{:2d} seconds remaining.".format(remaining)) 
