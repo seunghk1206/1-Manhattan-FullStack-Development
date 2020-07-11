@@ -13,10 +13,9 @@ def solution(numbers, target):
     for each in numbers:
         tupNN.append(-each)
     tupN = tuple(numbers)
-    result = list(product(*LoN))
+    result = list(product(*tupN))
     for eachL in result:
         if sum(eachL) == abs(negNum):
             answer += 1
     return answer
 solution([1, 1, 1, 1, 1], 3)
-1-1
