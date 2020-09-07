@@ -10,9 +10,9 @@ inp_encrypted = []
 for each in inp:
     if each in K_consonant:
         inp_encrypted.append(' ' + KC_encrypt[K_consonant.index(each)])
-    elif each in K_vowel:
+    if each in K_vowel:
         inp_encrypted.append(' ' + KV_encrypt[K_vowel.index(each)])
-    elif each in exception:
+    if each in exception:
         inp_encrypted.append(' ' + exception_encrypt[exception.index(each)])
 print(inp_encrypted, inp)
 for each in inp_encrypted:
