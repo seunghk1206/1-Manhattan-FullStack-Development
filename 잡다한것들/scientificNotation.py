@@ -1,8 +1,8 @@
 def scientificNotation(number):
     try:
-        number = int(number)
+        number = int(eval(number))
     except:
-        number = float(number)
+        number = float(eval(number))
     count = 0 
     a = ''
     print(str(type(number)))
