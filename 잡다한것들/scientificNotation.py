@@ -7,34 +7,58 @@ def scientificNotation(number):
     a = ''
     print(str(type(number)))
     if str(type(number)) == "<class 'float'>":
-        print('success! type = float')
-        intP = str(number).split('.')[0]
-        print(intP)
-        if len(intP) > 1:
-            count = len(intP) - 1
-            a += str(intP[0])
-            a += '.'
-            a += str(intP[1:])
-            a += str(str(number).split('.')[1])
-            a += ' * 10^'
-            a += str(count)
-        else:
-            if intP == '0':
-                print('front = 0')
-                run = True
-                while run:
-                    count += 1
-                    number *= 10
-                    if str(number)[0] == 0:
-                        pass
-                    else:
-                        break
-                a += str(number)
-                a += ' * 10^(-'
+        intP = str(eval(str(number))).split('.')[0]
+        if intP[0] == '-':
+            if len(intP) > 2:
+                count = len(intP) - 2
+                a += '-'
+                a += str(intP[1])
+                a += '.'
+                a += str(intP[2:])
+                a += str(str(number).split('.')[1])
+                a += ' * 10^'
                 a += str(count)
-                a += ')'
             else:
-                return str(number)
+                if intP[1] == '0':
+                    run = True
+                    while run:
+                        count += 1
+                        number *= 10
+                        if int(str(number)[1]) == 0:
+                            pass
+                        else:
+                            break
+                    a += str(number)
+                    a += ' * 10^(-'
+                    a += str(count)
+                    a += ')'
+                else:
+                    return str(number)
+        else:
+            if len(intP) > 1:
+                count = len(intP) - 1
+                a += str(intP[0])
+                a += '.'
+                a += str(intP[1:])
+                a += str(str(number).split('.')[1])
+                a += ' * 10^'
+                a += str(count)
+            else:
+                if intP == '0':
+                    run = True
+                    while run:
+                        count += 1
+                        number *= 10
+                        if str(number)[0] == 0:
+                            pass
+                        else:
+                            break
+                    a += str(number)
+                    a += ' * 10^(-'
+                    a += str(count)
+                    a += ')'
+                else:
+                    return str(number)
     elif str(type(number)) == "<class 'int'>":
         if str(number)[0] == '-':
             num = float(str(number)[1:])
@@ -66,5 +90,3 @@ def scientificNotation(number):
     return a
 n = input("give an input ")
 print(scientificNotation(n))
-
-#The conquerors
