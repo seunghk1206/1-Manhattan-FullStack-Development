@@ -1,11 +1,7 @@
 def scientificNotation(number):
-    try:
-        number = int(eval(number))
-    except:
-        number = float(eval(number))
+    number = float(eval(number))
     count = 0 
     a = ''
-    print(str(type(number)))
     if str(type(number)) == "<class 'float'>":
         intP = str(eval(str(number))).split('.')[0]
         if intP[0] == '-':
@@ -24,9 +20,7 @@ def scientificNotation(number):
                     while run:
                         count += 1
                         number *= 10
-                        if int(str(number)[1]) == 0:
-                            pass
-                        else:
+                        if str(number)[1] != '0':
                             break
                     a += str(number)
                     a += ' * 10^(-'
@@ -49,10 +43,8 @@ def scientificNotation(number):
                     while run:
                         count += 1
                         number *= 10
-                        if str(number)[0] == 0:
-                            pass
-                        else:
-                            break
+                        if str(number)[0] != '0':
+                            run = False
                     a += str(number)
                     a += ' * 10^(-'
                     a += str(count)
