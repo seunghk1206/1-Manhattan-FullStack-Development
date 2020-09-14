@@ -1,24 +1,70 @@
 def scientificNotation(number):
-    if str(type(number)) == "<class 'int'>":
-        b = str(number[0])
-        b += '.'
-        b += str(number[1:])
-        b += '*10^'
-        b += str(len(number)-1)
-        return b
-    elif str(type(number)) == "<class 'float'>":
-        x = number.split('.')
-        for each in number:
-            if each != 0:
-                n = number[number.index(each):]
-                break
-        b = str(n[0])
-        b += '.'
-        b += str(n[1:])
-        b += '*10^'
-        b += str(-number.count(0))
-        return b
-    else:
-        print('critical error!')
-n = 0.1283
-scientificNotation(n)
+    try:
+        number = int(number)
+    except:
+        number = float(number)
+    count = 0 
+    a = ''
+    print(str(type(number)))
+    if str(type(number)) == "<class 'float'>":
+        print('success! type = float')
+        intP = str(number).split('.')[0]
+        print(intP)
+        if len(intP) > 1:
+            count = len(intP) - 1
+            a += str(intP[0])
+            a += '.'
+            a += str(intP[1:])
+            a += str(str(number).split('.')[1])
+            a += ' * 10^'
+            a += str(count)
+        else:
+            if intP == '0':
+                print('front = 0')
+                run = True
+                while run:
+                    count += 1
+                    number *= 10
+                    if str(number)[0] == 0:
+                        pass
+                    else:
+                        break
+                a += str(number)
+                a += ' * 10^(-'
+                a += str(count)
+                a += ')'
+            else:
+                return str(number)
+    elif str(type(number)) == "<class 'int'>":
+        if str(number)[0] == '-':
+            num = float(str(number)[1:])
+            run  = True
+            while run:
+                count += 1
+                num /= 10
+                if len(str(num).split('.')[0]) == 1:
+                    break
+                else:
+                    pass
+            a += '-'
+            a += str(num)
+            a += ' * 10^'
+            a += str(count)
+        elif str(number)[0] != '-':
+            num = float(eval(str(number)))
+            run  = True
+            while run:
+                count += 1
+                num /= 10
+                if len(str(num).split('.')[0]) == 1:
+                    break
+                else:
+                    pass
+            a += str(num)
+            a += ' * 10^'
+            a += str(count)
+    return a
+n = input("give an input ")
+print(scientificNotation(n))
+
+#The conquerors
