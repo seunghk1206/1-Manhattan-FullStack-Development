@@ -21,7 +21,7 @@ def scientificNotation(number):
                         count += 1
                         number *= 10
                         if str(number)[1] != '0':
-                            break
+                            run = False
                     a += str(number)
                     a += ' * 10^(-'
                     a += str(count)
@@ -59,7 +59,7 @@ def scientificNotation(number):
                 count += 1
                 num /= 10
                 if len(str(num).split('.')[0]) == 1:
-                    break
+                    run = False
                 else:
                     pass
             a += '-'
@@ -73,7 +73,7 @@ def scientificNotation(number):
                 count += 1
                 num /= 10
                 if len(str(num).split('.')[0]) == 1:
-                    break
+                    run = False
                 else:
                     pass
             a += str(num)
