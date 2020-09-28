@@ -22,4 +22,5 @@ def solution(arrows):
             answer += 1
         coorL.append(a)
     return answer
-print(solution([6, 6, 6, 4, 4, 4, 2, 2, 2, 0, 0, 0, 1, 6, 5, 5, 3, 6, 0]))
+print(solution([6, 6, 6, 4, 4, 4, 2, 2, 2, 0, 0, 0, 1, 6, 5, 5, 3, 6, 0, 2, 4]))
+#ans = 5
