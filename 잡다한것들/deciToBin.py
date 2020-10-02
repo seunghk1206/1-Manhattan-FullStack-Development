@@ -12,4 +12,4 @@ def deciToBin(n, TargetNum):
             return deciToBin(n+1, TargetNum)
     elif TargetNum < 0:
         return -1*deciToBin(0, -TargetNum)
-print(deciToBin(0, float(eval(input()))))
+print(deciToBin(0, int(eval(input('remember! Only integers are allowed!')))))
