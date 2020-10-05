@@ -11,4 +11,4 @@ def quadToDeci(num):
         return ans
     elif num < 0:
         return -1 * quadToDeci(-num)
-print(quadToDeci(64.2342))
+print(quadToDeci(0.1))
