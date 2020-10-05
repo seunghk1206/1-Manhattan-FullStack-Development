@@ -5,5 +5,7 @@ def quadToDeci(num):
         ans += int(a[each]) * 4**each
     if '.' in str(num):
         b = str(num).split('.')[1]
-        for each in range(len(b)):
-            pass
+        for each in range(1, len(b)+1):
+            ans += int(b[each-1]) * 4 ** (-1 * each)
+    return ans
+print(quadToDeci(64.2342))
