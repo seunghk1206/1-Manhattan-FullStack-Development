@@ -19,4 +19,4 @@ def binToDeci(num):
             return ans
     elif num < 0:
         return -1 * binToDeci(-num)
-print(binToDeci(-100))
+print(binToDeci(111))
