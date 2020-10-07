@@ -14,7 +14,6 @@ def deciToHexa(n, TargetNum):
             try:
                 decP = str(TargetNum).split('.')[1]
                 decP = '0.' + decP
-                print(float(decP))
                 return ans + '.' + deciToHexa(-1, float(decP))
             except:
                 return ans
@@ -32,4 +31,4 @@ def deciToHexa(n, TargetNum):
             return hexaL[int(TargetNum//(16**n))] + deciToHexa(n-1, TargetNum%(16**n))
         else:
             return '0' + deciToHexa(n-1, TargetNum)
-print(deciToHexa(0, 2000.8883))
+print(deciToHexa(0, 1323+14/16))
