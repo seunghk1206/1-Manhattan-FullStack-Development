@@ -40,8 +40,8 @@ btn_c = Button(ui, text='C', width = 5, command = cancel)
 btn_CE = Button(ui, text='CE', width = 5, command = cancel_all)
 btn_e = Button(ui, text='=', width = 5, command = equal)
 #Number
-btn_zero = Button(ui, text='0', width = 5, command = lambda: buttonPress('0')) #얘내들을 바꿔줘야해
-btn_one = Button(ui, text='1', width = 5, command = lambda: buttonPress('1'))#근데 여기서는 규칙상 '1' string 문자형태로 써야함
+btn_zero = Button(ui, text='0', width = 5, command = lambda: buttonPress('0'))
+btn_one = Button(ui, text='1', width = 5, command = lambda: buttonPress('1'))
 btn_Two = Button(ui, text='2', width = 5, command =  lambda: buttonPress('2'))
 btn_Three = Button(ui, text='3', width = 5, command =  lambda: buttonPress('3'))
 btn_four = Button(ui, text='4', width = 5, command =  lambda: buttonPress('4'))
