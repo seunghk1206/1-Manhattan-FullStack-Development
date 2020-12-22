@@ -1,18 +1,20 @@
 from tkinter import * #Tkinter lib take all * = all
 import math #package (lib)불러올땐 맨위에 작성
+from sympy import Integral, Symbol
 
 ui = Tk() # class  = book, we use ui variable to clarify 
 ui.title("Calculator") # our ui's title = calculator
 ui.resizable(False, False) # parameter = 2
 ui.geometry("280x300")
-ui.configure(background = 'green')
+ui.configure(background = 'blue')
 display = Entry(ui, width=28, justify='right')
 display.grid(row = 0, column = 0 , columnspan = 4, pady=10, padx=4)
 
-
 def myFunction():
     value = Entry.get(display) #get display's entry
-    myFun = eval(value) * 29 / 30 # tax calc
+    x = Symbol('x')
+    f = math.pi**x
+    myFun = Integral(f, (x, 0, math.gamma(eval(value)))).doit()# tax calc
     display.delete(0, END)
     display.insert(0, myFun)
 def cancel():
@@ -55,9 +57,9 @@ btn_plus = Button(ui, text='+', width = 5, command =  lambda: buttonPress('+'))
 btn_minus = Button(ui, text='-', width = 5, command =  lambda: buttonPress('-'))
 btn_mult = Button(ui, text='*', width = 5, command =  lambda: buttonPress('*'))
 btn_div = Button(ui, text='/', width = 5, command =  lambda: buttonPress('/'))
-btn_negative = Button(ui, text = '+/-', width = 5, command =  lambda: buttonPress('.'))
+btn_negative = Button(ui, text = '+/-', width = 5, command =  lambda: buttonPress('-'))
 #.
-btn_dot = Button(ui, text='.', width = 5, command =  lambda: buttonPress)
+btn_dot = Button(ui, text='.', width = 5, command =  lambda: buttonPress('.'))
 
 #button grid
 btn_my.grid(row = 1, column=0, pady = 3)#computer always think that 0 = one 1 = scond
