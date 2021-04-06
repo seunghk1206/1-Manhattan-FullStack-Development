@@ -22,4 +22,15 @@ def findingMech(L):
         numL.append(a)
     return numL
 
-print(doubleSort(findingMech(L), L))
+def find(Str, L):
+    tempL = []
+    SortL = doubleSort(findingMech(L), L)
+    ValStr = findingMech([Str])
+    for each in range(len(SortL[0])):
+        if SortL[0][each] == ValStr[0]:
+            tempL.append(SortL[1][each])
+    for each in range(len(tempL)):
+        if tempL[each] == Str:
+            return [SortL, each + SortL[0].index(ValStr[0])]
+
+print(find('Hello', L)[0][1][find('Hello', L)[1]])
