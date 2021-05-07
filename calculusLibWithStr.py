@@ -26,6 +26,28 @@ def simpleDerivative(exp):
 def powerDerivative(exp):
     splitL = exp.split('^x')
 
+def chainRule(exp):
+    splitL = exp.split(')^')
+    ret = ''
+    retL = []
+    if 'sin(x)' in exp:
+        splitL = replace(exp, 'sin(x)', 'cos(x)')
+        retL.append(splitL)
+    if 'cos(x)' in exp:
+        splitL = replace(exp, 'cos(x)', '(-sin(x))')
+        retL.append(splitL)
+    if 'tan(x)' in exp:
+        splitL = replace(exp, 'tan(x)', '(sec(x)*sec(x))')
+        retL.append(splitL)
+    if 'sec(x)' in exp:
+        splitL = replace(exp, 'sec(x)', '(sec(x)*tan(x))')
+        retL.append(splitL)
+    if '^' in exp:
+        if 'x^' in exp:
+            splitL = simpleDerivative(exp)
+            retL.append(splitL)
+        if '^x' in exp:
+            splitL = powerDerivative(exp)
 
 def Derivative(exp):
     splitL = exp
