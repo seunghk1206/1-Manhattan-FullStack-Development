@@ -1,3 +1,4 @@
+from hashlib import new
 import random
 class matrix:
     def __init__(self, matrix):
@@ -44,13 +45,35 @@ class matrix:
                 retL.append(tempL)
                 tempL = []
             return retL
-    
+
+def MagicIndex(a, dim):
+    return [a//dim, a%dim-1]
+
+
+# 5->2
+# 7->3
 def MagicSquare(dimension):
-    initInd = random.randint(1, dimension)
-    print(initInd)
-    for i in range(dimension**2):
-        pass
-MagicSquare(5)
+    if dimension%2 == 1:
+        initInd = MagicIndex(dimension**2-dimension//2, dimension)
+        initL = [[0 for _ in range(dimension)] for _ in range(dimension)]
+        initL[initInd[0]][initInd[1]] = 1
+        newInd = initInd
+        for i in range(dimension**2-1):
+            if newInd[0]+1 >= dimension:
+                rightDownInd = [(newInd[0]+1)%dimension, (newInd[1]+1)%dimension]
+            else:
+                rightDownInd = [(newInd[0]+1)%dimension, (newInd[1]+1)%dimension]
+            if initL[rightDownInd[0]][rightDownInd[1]] == 0:
+                initL[rightDownInd[0]][rightDownInd[1]] = i+2
+                newInd = rightDownInd
+            else:
+                if newInd[0] == 0:
+                    newInd = [dimension-1, newInd[1]]
+                else:
+                    newInd = [newInd[0]-1, newInd[1]]
+                initL[newInd[0]][newInd[1]] = i+2
+        return initL
+print(MagicSquare(5))
 matrix1 = matrix([[1,2,3], [1,2,0]])
 matrix2 = [[0, 5], [1, 2], [3, 4]]
 print(matrix1.MultiplyMatrix(matrix2))
