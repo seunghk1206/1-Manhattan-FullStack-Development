@@ -1,3 +1,4 @@
+import random
 class matrix:
     def __init__(self, matrix):
         self.matrix = matrix
@@ -26,7 +27,7 @@ class matrix:
         temp2L = []
         for i in range(len(self.matrix)):
             tempL.append(self.matrix[i][i])
-            temp2L.append(self.matrix[i][len(self.matrix)-i])
+            temp2L.append(self.matrix[i][-i-1])
         return [tempL, temp2L]
     def MultiplyMatrix(self, multiplicationMatrix):
         var = 0
@@ -43,7 +44,13 @@ class matrix:
                 retL.append(tempL)
                 tempL = []
             return retL
-
+    
+def MagicSquare(dimension):
+    initInd = random.randint(1, dimension)
+    print(initInd)
+    for i in range(dimension**2):
+        pass
+MagicSquare(5)
 matrix1 = matrix([[1,2,3], [1,2,0]])
 matrix2 = [[0, 5], [1, 2], [3, 4]]
 print(matrix1.MultiplyMatrix(matrix2))
