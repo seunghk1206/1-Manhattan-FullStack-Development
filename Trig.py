@@ -1,7 +1,3 @@
-import sys
-
-sys.setrecursionlimit(20000)
-
 def factorial(x):
     if x == 0:
         return 1
