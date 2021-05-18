@@ -117,7 +117,7 @@ def magicSquareCheck(magicSquare):
     if len(set(tempL)) == 1:
         return True
     return False
-print(magicSquareCheck(MagicSquare(7)))
+print((MagicSquare(5)))
 matrix1 = matrix([[1,2,3], [1,2,0]])
 matrix2 = [[0, 5], [1, 2], [3, 4]]
 print(matrix1.MultiplyMatrix(matrix2))
