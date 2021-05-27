@@ -74,7 +74,7 @@ def MagicSquare(dimension):
     # 0 -> 3 -> 5 -> 6 -> 
     # 8x8
     # 0 -> 3 -> 4 -> 7 -> 9
-    elif dimension%2 == 0:
+    elif dimension%2 == 0:#only works for dimension, 4x4.
         initL = [[0 for _ in range(dimension)] for _ in range(dimension)]
         DiagonalInd = []
         for each in range(dimension*dimension//4):
