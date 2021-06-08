@@ -1,5 +1,5 @@
 from hashlib import new
-import random
+
 class matrix:
     def __init__(self, matrix):
         self.matrix = matrix
