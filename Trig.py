@@ -68,9 +68,21 @@ def eulerNumber2(precision):
 def eulerNumber3(precision):
     return (1+1/precision)**(precision)#precision -> inf, more precise the e is
 
+def piF(x):
+    return factorial(4*x)/(factorial(x))**4*(26390*x+1103)/396**(4*x)
+
+def summatePiF(limit):
+    if limit == 0:
+        return piF(limit)
+    return piF(limit) + summatePiF(limit-1)
+
 def pi(precision):
     return 1/2*precision*sin(360/precision, 84)#precision -> inf, more precise the pi is
+
+def pi2(precision):
+    return 99**2/(2*(2)**(1/2))*1/summatePiF(precision)#precision -> inf, more precise the pi is.
 
 print(MultipleSin(1, 30))
 print(eulerNumber3(1/0.000001))
 print(pi(300000000))#300000000 returns 3.1415 therefore, the most accurate
+print(pi2(29))# 29 max limit. over will cause error.
