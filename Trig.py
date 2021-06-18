@@ -61,5 +61,12 @@ def eulerNumber(precision):
         return 1/factorial(precision)+eulerNumber(precision-1)
     else:
         return 1
+
+def eulerNumber2(precision):
+    return (1+precision)**(1/precision)#precision -> 0, more precise the e is
+
+def eulerNumber3(precision):
+    return (1+1/precision)**(precision)#precision -> inf, more precise the e is
+
 print(MultipleSin(1, 30))
-print(eulerNumber(20))#20 is the limit threshold. It makes no difference in limit is larger than 20
+print(eulerNumber3(1/0.000001))#20 is the limit threshold. It makes no difference in limit is larger than 20
