@@ -58,7 +58,7 @@ def MultipleSinBody(x, n, limit):
         return sin(n*180/limit+x, 84)
 def eulerNumber(precision):
     if precision != 0:
-        return 1/factorial(precision)+eulerNumber(precision-1)
+        return 1/factorial(precision)+eulerNumber(precision-1)#20 is the limit threshold. It makes no difference in limit is larger than 20
     else:
         return 1
 
@@ -69,4 +69,4 @@ def eulerNumber3(precision):
     return (1+1/precision)**(precision)#precision -> inf, more precise the e is
 
 print(MultipleSin(1, 30))
-print(eulerNumber3(1/0.000001))#20 is the limit threshold. It makes no difference in limit is larger than 20
+print(eulerNumber3(1/0.000001))
