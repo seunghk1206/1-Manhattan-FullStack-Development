@@ -68,5 +68,9 @@ def eulerNumber2(precision):
 def eulerNumber3(precision):
     return (1+1/precision)**(precision)#precision -> inf, more precise the e is
 
+def pi(precision):
+    return 1/2*precision*sin(360/precision, 84)#precision -> inf, more precise the pi is
+
 print(MultipleSin(1, 30))
 print(eulerNumber3(1/0.000001))
+print(pi(300000000))#300000000 returns 3.1415 therefore, the most accurate
