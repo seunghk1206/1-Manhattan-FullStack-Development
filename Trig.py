@@ -82,7 +82,17 @@ def pi(precision):
 def pi2(precision):
     return 99**2/(2*(2)**(1/2))*1/summatePiF(precision)#precision -> inf, more precise the pi is.
 
+def summateExponent(x, precision):
+    if precision == 0:
+        return 1
+    else:
+        return x**precision/factorial(precision)+summateExponent(x, precision-1)
+
+def exponentMaclaurin(x, precision):
+    return summateExponent(x, precision)
+fl = pi2(29)
 print(MultipleSin(1, 30))
 print(eulerNumber3(1/0.000001))
 print(pi(300000000))#300000000 returns 3.1415 therefore, the most accurate
 print(pi2(29))# 29 max limit. over will cause error.
+print(exponentMaclaurin(-10000, 20))
