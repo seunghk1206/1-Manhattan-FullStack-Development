@@ -63,10 +63,10 @@ def eulerNumber(precision):
         return 1
 
 def eulerNumber2(precision):
-    return (1+precision)**(1/precision)#precision -> 0, more precise the e is
+    return (1+precision)**(1/precision) #precision -> 0, more precise the e is
 
 def eulerNumber3(precision):
-    return (1+1/precision)**(precision)#precision -> inf, more precise the e is
+    return (1+1/precision)**(precision) #precision -> inf, more precise the e is
 
 def piF(x):
     return factorial(4*x)/(factorial(x))**4*(26390*x+1103)/396**(4*x)
@@ -77,10 +77,10 @@ def summatePiF(limit):
     return piF(limit) + summatePiF(limit-1)
 
 def pi(precision):
-    return 1/2*precision*sin(360/precision, 84)#precision -> inf, more precise the pi is
+    return 1/2*precision*sin(360/precision, 84) #precision -> inf, more precise the pi is
 
 def pi2(precision):
-    return 99**2/(2*(2)**(1/2))*1/summatePiF(precision)#precision -> inf, more precise the pi is.
+    return 99**2/(2*(2)**(1/2))*1/summatePiF(precision) #precision -> inf, more precise the pi is.
 
 def summateExponent(x, precision):
     if precision == 0:
@@ -89,10 +89,20 @@ def summateExponent(x, precision):
         return x**precision/factorial(precision)+summateExponent(x, precision-1)
 
 def exponentMaclaurin(x, precision):
-    return summateExponent(x, precision)
-fl = pi2(29)
+    return summateExponent(x, precision) #precision -> inf more precise the value is
+
+def summateFractional(x, precision):
+    if precision == 0:
+        return 1
+    else:
+        return x**precision + summateFractional(x, precision-1)
+
+def fractional(x, precision): # return 1/(1-x) in maclaurin series for |x| < 1
+    return summateFractional(x, precision) # when x = 1, undefined
+
 print(MultipleSin(1, 30))
 print(eulerNumber3(1/0.000001))
 print(pi(300000000))#300000000 returns 3.1415 therefore, the most accurate
 print(pi2(29))# 29 max limit. over will cause error.
-print(exponentMaclaurin(-10000, 20))
+print(exponentMaclaurin(0, 20))
+print(fractional(3, 900))
