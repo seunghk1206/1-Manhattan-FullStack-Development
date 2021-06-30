@@ -28,4 +28,4 @@ summateSquareY = sum([each**2 for each in numInp2])
 
 denominator = (n*summateSquareX-sumX**2)**(1/2)*(n*summateSquareY-sumY**2)**(1/2)
 
-print(numerator/denominator)
+print("{:.3f}".format(numerator/denominator))
